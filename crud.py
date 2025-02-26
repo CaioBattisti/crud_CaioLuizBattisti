@@ -1,6 +1,5 @@
 import mysql.connector
 from config import MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE
-
 def get_connection():
     return mysql.connector.connect(
         host = MYSQL_HOST,
@@ -28,7 +27,7 @@ def read_users():
     conn.close()
     return result
 
-def Update_user(user_id,nome, telefone,email, usuario,senha):
+def update_user(user_id,nome, telefone,email, usuario,senha):
     conn = get_connection()
     cursor = conn.cursor()
     query = "UPDATE usuario SET nome=%s,telefone=%s,email=%s,usuario=%s,senha=%s WHERE idusuario = %s)"
