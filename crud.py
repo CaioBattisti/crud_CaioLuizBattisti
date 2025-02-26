@@ -15,3 +15,31 @@ def create_user(nome, telefone,email,usuario,senha):
     conn.commit()
     cursor.close()
     conn.close()
+
+def read_user():
+    conn = get_connection()
+    cursor = conn.cursor()
+    query = "select * FROM usuario"
+    cursor.execute(query)
+    result = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return result
+
+def Update_user(user_id,nome, telefone,email, usuario,senha):
+    conn = get_connection()
+    cursor = conn.cursor()
+    query = "UPDATE usuario SET nome=%s,telefone=%s,email=%s,usuario=%s,senha=%s WHERE idusuario = %s)"
+    cursor.execute(query,(nome,telefone,email,usuario,senha))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+def delete_user(nome, telefone,email, usuario,senha):
+    conn = get_connection()
+    cursor = conn.cursor()
+    query = "insert usuario(nome,telefone,email,usuario,senha)VALUES(%s,%s,%s,%s,%s)"
+    cursor.execute(query,(nome, telefone,email, usuario,senha))
+    conn.commit()
+    cursor.close()
+    conn.close()
