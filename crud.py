@@ -9,5 +9,9 @@ def get_connection():
         database = MYSQL_DATABASE)
 def create_user(nome, telefone,email,usuario,senha):
     conn = get_connection()
-    corsor = conn.cursor()
-    query = "insert usuario"
+    cursor = conn.cursor()
+    query = "insert usuario(nome,telefone,email,usuario,senha)VALUES(%s,%s,%s,%s,%s)"
+    cursor.execute(query,(nome,telefone,email,usuario,senha))
+    conn.commit()
+    cursor.close()
+    conn.close()
