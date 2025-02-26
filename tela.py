@@ -80,3 +80,16 @@ class CRUDApp:
             messagebox.showerror("Successo","Usuario alterado com Sucesso")
         else:
            messagebox.showerror("Error","Todos os campos são obrigatorios!")
+
+    def delete_user(self):
+        user_id = self.user_ID_entry.get()
+        if user_id:
+            delete_user(user_id)
+            self.user_ID_entry.delete(0,tk.END)
+            messagebox.showerror("Sucesso","usuario excluido com sucesso!")
+        else:
+            messagebox.showerror("Error","ID do usuario é obrigatorio")
+if __name__ =="__main__":
+    root = tk.Tk()
+    app = CRUDApp(root)
+    root.mainloop()
