@@ -16,7 +16,7 @@ def create_user(nome, telefone,email,usuario,senha):
     cursor.close()
     conn.close()
 
-def read_user():
+def read_users():
     conn = get_connection()
     cursor = conn.cursor()
     query = "select * FROM usuario"
