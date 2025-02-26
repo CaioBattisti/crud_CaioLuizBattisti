@@ -55,4 +55,28 @@ class CRUDApp:
             messagebox.showerror("Successo","Usuario criado com Sucesso")
         else:
            messagebox.showerror("Error","Todos os campos são obrigatorios!")
- 
+
+    def read_users(self):
+        users = read_users()
+        self.text_area.delete(1.0,tk.END)
+        for user in users:
+            self.text_area.insert(tk.end,(f"ID: {user[0]},Nome:{user[1]},telefone:{user[2]},email:{user[3]}\n"))
+
+    def update_user(self):
+        user_id = self.user_ID_entry.get()
+        nome = self.nome_entry.get()
+        telefone =self.telefone_entry.get()
+        email = self.email_entry.get()
+        usuario = self.usuario_entry.get()
+        senha = self.senha_entry.get()
+
+        if user_id and nome and telefone and email and usuario and senha:
+            update_user(user_id,nome,telefone,email,usuario,senha)
+            self.nome_entry.delete =(0,tk.END)
+            self.telefone_entry.delete =(0,tk.END)
+            self.email_entry.delete =(0,tk.END)
+            self.usuario_entry.delete =(0,tk.END)
+            self.senha_entry.delete =(0,tk.END)
+            messagebox.showerror("Successo","Usuario alterado com Sucesso")
+        else:
+           messagebox.showerror("Error","Todos os campos são obrigatorios!")
