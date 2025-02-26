@@ -89,6 +89,7 @@ class CRUDApp:
             messagebox.showerror("Sucesso","usuario excluido com sucesso!")
         else:
             messagebox.showerror("Error","ID do usuario é obrigatorio")
+            
 if __name__ =="__main__":
     root = tk.Tk()
     app = CRUDApp(root)

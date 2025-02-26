@@ -7,6 +7,7 @@ def get_connection():
         user = MYSQL_USER,
         password = MYSQL_PASSWORD,
         database = MYSQL_DATABASE)
+
 def create_user(nome, telefone,email,usuario,senha):
     conn = get_connection()
     cursor = conn.cursor()
